@@ -3,6 +3,12 @@ from os import chmod
 from Crypto.PublicKey import RSA
 
 class GenerateSSHKey():
+    """
+    GenerateSSHKey(username)
+    Attributes:
+       PrivateKey(self)
+       PublicKey(self)
+    """
     def __init__(self, user):
         self.user = user
         self.dir = '/tmp/sshkeys/'
@@ -11,6 +17,7 @@ class GenerateSSHKey():
         self.ext = (".key")
  
     def PrivateKey(self):
+        """ Create the private key. """
         self.t = "_private"
         self.file = self.location + self.t + self.ext
         if not os.path.exists(self.location):
@@ -25,6 +32,7 @@ class GenerateSSHKey():
         return self.file
  
     def PublicKey(self):
+        """ Create the public key. """
         self.pubkey = self.key.publickey()
         self.t = "_public"
         self.file = self.location + self.t + self.ext
