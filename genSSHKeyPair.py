@@ -39,8 +39,6 @@ class GenerateSSHKey():
         return self.file
 
 user = "myusername"
-
 Gen = GenerateSSHKey(user)
-
 print Gen.PrivateKey() 
 print Gen.PublicKey() 
